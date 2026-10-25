@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bobb67kri3tsl"
-path="res://.godot/imported/skull_temp2.blend-fd50f5ccb278f2b5168df574e7350643.scn"
+path="res://.godot/imported/skull_temp2.blend-32d31ea2306e56f505b548ca031861ad.scn"
 
 [deps]
 
-source_file="res://assets/skull_temp2.blend"
-dest_files=["res://.godot/imported/skull_temp2.blend-fd50f5ccb278f2b5168df574e7350643.scn"]
+source_file="res://assets/temp_deprecated/skull_temp2.blend"
+dest_files=["res://.godot/imported/skull_temp2.blend-32d31ea2306e56f505b548ca031861ad.scn"]
 
 [params]
 

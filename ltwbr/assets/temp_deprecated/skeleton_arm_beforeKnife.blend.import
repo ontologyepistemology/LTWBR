@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://idel65d6sju"
-path="res://.godot/imported/skeleton_Arm.blend-430b6715ab1b41212eeec8071c6cd01f.scn"
+uid="uid://dw6um12jdw33q"
+path="res://.godot/imported/skeleton_arm_beforeKnife.blend-9fa42ce781214cc410c019810ec02792.scn"
 
 [deps]
 
-source_file="res://assets/skeleton_Arm.blend"
-dest_files=["res://.godot/imported/skeleton_Arm.blend-430b6715ab1b41212eeec8071c6cd01f.scn"]
+source_file="res://assets/temp_deprecated/skeleton_arm_beforeKnife.blend"
+dest_files=["res://.godot/imported/skeleton_arm_beforeKnife.blend-9fa42ce781214cc410c019810ec02792.scn"]
 
 [params]
 

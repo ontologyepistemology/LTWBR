@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dafldh6hsssyd"
-path="res://.godot/imported/rigging_test.blend-93ef98113068a6e0a1dc8103fa9eee61.scn"
+uid="uid://htcgy2sxx5cd"
+path="res://.godot/imported/skull_temp.blend-4ed3c13a6bc58866874d50d3b490d737.scn"
 
 [deps]
 
-source_file="res://assets/rigging_test.blend"
-dest_files=["res://.godot/imported/rigging_test.blend-93ef98113068a6e0a1dc8103fa9eee61.scn"]
+source_file="res://assets/temp_deprecated/skull_temp.blend"
+dest_files=["res://.godot/imported/skull_temp.blend-4ed3c13a6bc58866874d50d3b490d737.scn"]
 
 [params]
 
