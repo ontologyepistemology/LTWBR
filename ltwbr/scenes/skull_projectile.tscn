@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bnpt2xga0ximj"]
+
+[ext_resource type="Script" uid="uid://7vnlapjs6t0d" path="res://scripts/Projectile.gd" id="1_7i2sg"]
+[ext_resource type="PackedScene" uid="uid://bn45akopv5h27" path="res://assets/skull_temp.glb" id="2_n1dwg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oqx4g"]
+radius = 0.2
+
+[node name="projectile" type="Area3D" unique_id=1505279531]
+script = ExtResource("1_7i2sg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=796484855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22669084, 0)
+shape = SubResource("SphereShape3D_oqx4g")
+
+[node name="skull_projectile" parent="." unique_id=2075960481 instance=ExtResource("2_n1dwg")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
