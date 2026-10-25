@@ -6,6 +6,9 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qvlg1"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_q0jkj"]
+radius = 1.0
+
 [node name="player" type="CharacterBody3D" unique_id=1110071146]
 script = ExtResource("1_g2els")
 projectile_scene = ExtResource("2_qhqgy")
@@ -16,10 +19,18 @@ visible = false
 shape = SubResource("CapsuleShape3D_qvlg1")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=468840483]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4)
+transform = Transform3D(0.25000003, -0.25881904, 0.93301266, 0.066987306, 0.9659258, 0.25, -0.9659258, 0, 0.25881907, 4, 4, 0)
 
 [node name="node" type="Node3D" parent="Camera3D" unique_id=1864938072]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -4)
+transform = Transform3D(0.25000006, 0.06698732, -0.96592593, -0.25881907, 0.9659259, -7.450581e-09, 0.9330127, 0.25000003, 0.2588191, -1.2679496, -2.8284273, -4.732051)
 
 [node name="parry_arm" parent="Camera3D/node" unique_id=676794070 instance=ExtResource("1_3vyb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.3, -0.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Area3D" type="Area3D" parent="Camera3D/node" unique_id=1932822663]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/node/Area3D" unique_id=1469616242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4788818, -1.3343303)
+shape = SubResource("SphereShape3D_q0jkj")
+
+[connection signal="area_entered" from="Camera3D/node/Area3D" to="." method="_on_area_3d_area_entered"]

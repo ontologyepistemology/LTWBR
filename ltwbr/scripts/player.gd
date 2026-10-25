@@ -29,3 +29,14 @@ func fire_projectile() -> void:
 	projectile.init(
 		spawn_position + (-$Camera3D.global_transform.basis.z * 20.0) # magic number hell
 	)
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	print("Parry area detected: ", area.name)
+	print("Is parrying: ", is_parrying)
+	if not is_parrying:
+		return
+	if area.has_method("deflect"):
+		area.call("deflect")
+	else:
+		print("This area has no deflect() method")
