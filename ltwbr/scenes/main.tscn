@@ -1,3 +1,11 @@
 [gd_scene format=3 uid="uid://cuy3vpwhg5ds4"]
 
+[ext_resource type="PackedScene" uid="uid://d2d5d35epo8t4" path="res://scenes/burning_wanderer.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://cwcaqlo70nwbk" path="res://scenes/player.tscn" id="2_0wfyh"]
+
 [node name="main" type="Node3D" unique_id=2122738950]
+
+[node name="burning_wanderer" parent="." unique_id=1803686469 instance=ExtResource("1_o5qli")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -8)
+
+[node name="player" parent="." unique_id=1110071146 instance=ExtResource("2_0wfyh")]
