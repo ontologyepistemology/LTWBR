@@ -11,7 +11,7 @@ func _input(event: InputEvent) -> void:
 		if not is_parrying: 
 			is_parrying = true
 			animation_player.play("ulnaAction")
-			await get_tree().create_timer(0.35).timeout
+			await get_tree().create_timer(0.5).timeout
 			is_parrying = false
 	if event.is_action_pressed("fire_projectile") and not event.is_echo():
 		fire_projectile()

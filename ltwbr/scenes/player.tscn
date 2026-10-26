@@ -23,9 +23,9 @@ _bundled = {
 "version": 3
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0wfyh"]
-radius = 0.7
-height = 3.350586
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dqkch"]
+radius = 0.25
+height = 3.3
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qvlg1"]
 
@@ -34,24 +34,33 @@ script = ExtResource("1_g2els")
 projectile_scene = SubResource("PackedScene_tuyoq")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=468840483]
-transform = Transform3D(0.9975641, -0.06975647, 0, 0.06975647, 0.9975641, 0, 0, 0, 1, 0, 2.0864656, 0)
+transform = Transform3D(0.997564, -0.06975646, 0, 0.06971397, 0.9969563, 0.03489949, -0.0024344653, -0.03481448, 0.9993908, 0, 2.1, 0)
 current = true
 
 [node name="node" type="Node3D" parent="Camera3D" unique_id=1864938072]
-transform = Transform3D(0.25000006, 0.06698733, -0.96592593, -0.25881904, 0.9659259, -7.450581e-09, 0.9330127, 0.25000003, 0.2588191, -0.14554445, -2.081383, 0)
+transform = Transform3D(0.2477389, 0.06633758, -0.96655315, -0.29115507, 0.95663387, -0.008969713, 0.9240423, 0.283639, 0.2563099, -0.1454558, -2.080115, -0.072816595)
 
 [node name="parry_arm" parent="Camera3D/node" unique_id=676794070 instance=ExtResource("1_3vyb7")]
 transform = Transform3D(-0.96836287, -0.24939609, 0.008637458, -0.24938597, 0.9659249, -0.069238156, 0.00892444, -0.06920175, -0.99756247, -3.8331783, -0.31765366, -2.345292)
 
-[node name="Area3D" type="Area3D" parent="Camera3D/node" unique_id=1932822663]
+[node name="ulna" parent="Camera3D/node/parry_arm" index="0" unique_id=243482965]
+transform = Transform3D(-3.934025e-08, -0.90000004, 3.934025e-08, 0, -3.934025e-08, -0.90000004, 0.90000004, -3.934025e-08, 1.719617e-15, -1.8669143, 0.113070756, -0.6169029)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/node/Area3D" unique_id=1469616242]
-transform = Transform3D(0.96982884, -0.24368393, -0.008236259, 0.24367882, 0.9674986, 0.067651615, -0.008514762, -0.06761709, 0.997675, -4.148788, 2.5136662, -1.8290113)
-shape = SubResource("CapsuleShape3D_0wfyh")
+[node name="Area3D" type="Area3D" parent="Camera3D/node/parry_arm/ulna" index="0" unique_id=1932822663]
+transform = Transform3D(0.009597331, -0.07693135, -1.108403, 1.0759585, 0.27709565, -0.009916365, 0.277107, -1.0732521, 0.07689094, -1.9017313, 2.1147578, 1.0272442)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/node/parry_arm/ulna/Area3D" unique_id=1469616242]
+transform = Transform3D(0.9698192, -0.24368589, -0.008238714, 0.2436764, 0.96749425, 0.06765099, -0.008514682, -0.067616805, 0.997675, -4.148788, 2.513666, -1.8290112)
+shape = SubResource("CapsuleShape3D_dqkch")
+
+[node name="Cube_002" parent="Camera3D/node/parry_arm/ulna/carpalia" parent_id_path=PackedInt32Array(676794070, 215697957) index="1" unique_id=449521208]
+transform = Transform3D(0.99999666, -0.0025552474, 0.0003363788, 0.0015689433, 0.50000966, -0.8660185, 0.0020447, 0.866016, 0.50001204, -0.12158489, -0.5428462, 0.22580588)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=204852305]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
 shape = SubResource("CapsuleShape3D_qvlg1")
 
-[connection signal="area_entered" from="Camera3D/node/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="Camera3D/node/parry_arm/ulna/Area3D" to="." method="_on_area_3d_area_entered"]
+
+[editable path="Camera3D/node/parry_arm"]
