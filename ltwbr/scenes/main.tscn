@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d2d5d35epo8t4" path="res://scenes/burning_wanderer.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://cwcaqlo70nwbk" path="res://scenes/player.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cd74jxhcm02qn" path="res://scenes/floor.tscn" id="3_sugp2"]
 
 [node name="main" type="Node3D" unique_id=2122738950]
 
@@ -9,3 +10,7 @@
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.5, -1.1956697, -8)
 
 [node name="player" parent="." unique_id=1110071146 instance=ExtResource("2_0wfyh")]
+mouse_sensitivity = 0.02
+
+[node name="floor" parent="." unique_id=1988829476 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
