@@ -19,6 +19,7 @@ mouse_sensitivity = 0.02
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="death_screen" type="CanvasLayer" parent="." unique_id=1016607322]
+process_mode = 3
 visible = false
 
 [node name="dark_overlay" type="ColorRect" parent="death_screen" unique_id=1463801922]
@@ -30,7 +31,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.70000005)
 
 [node name="death_text" type="Label" parent="death_screen" unique_id=1653730897]
-modulate = Color(1, 1, 1, 0)
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_colors/font_color = Color(0.798921, 0.15170373, 0.15170373, 1)
@@ -39,3 +39,14 @@ theme_override_font_sizes/font_size = 64
 text = "FRAGMENT SHATTERED"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="restart_button" type="Button" parent="death_screen" unique_id=1247248814]
+offset_left = 480.0
+offset_top = 384.0
+offset_right = 669.9355
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 32
+text = "TRY AGAIN"
+icon_alignment = 1
+
+[connection signal="pressed" from="death_screen/restart_button" to="." method="_on_restart_button_pressed"]
