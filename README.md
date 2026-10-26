@@ -4,7 +4,7 @@ WARNING: The code is all over the place because I #FreeStyled this with zero for
 HOW TO PLAY! 
 
 The core gameplay mechanics involve only one button: 
-F to parry
+F to parry.
 You parry until either you or the enemy dies, in either case you have the option to TRY AGAIN, or ESC free your cursor. 
 
 
