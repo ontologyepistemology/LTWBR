@@ -2,35 +2,56 @@
 
 [ext_resource type="PackedScene" uid="uid://b2wxjg7fc3kfg" path="res://assets/parry_arm.glb" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://wcla7fk3rivg" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="PackedScene" uid="uid://bnpt2xga0ximj" path="res://scenes/skull_projectile.tscn" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://7vnlapjs6t0d" path="res://scripts/Projectile.gd" id="2_dqkch"]
+[ext_resource type="PackedScene" uid="uid://bn45akopv5h27" path="res://assets/skull_temp.glb" id="3_qlg0r"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oqx4g"]
+radius = 0.2
+
+[sub_resource type="PackedScene" id="PackedScene_tuyoq"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("projectile", "script", "Area3D", "CollisionShape3D", "transform", "shape", "skull_projectile"),
+"node_count": 3,
+"node_ids": PackedInt32Array(1505279531, 796484855, 2075960481),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 3, 3, -1, 2, 4, 1, 5, 2, 0, 0, 0, 2147483647, 6, 3, 1, 4, 4, 0),
+"variants": [ExtResource("2_dqkch"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22669084, 0), SubResource("SphereShape3D_oqx4g"), ExtResource("3_qlg0r"), Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)],
+"version": 3
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0wfyh"]
+radius = 0.7
+height = 3.350586
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qvlg1"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_q0jkj"]
-radius = 1.0
-
 [node name="player" type="CharacterBody3D" unique_id=1110071146]
 script = ExtResource("1_g2els")
-projectile_scene = ExtResource("2_qhqgy")
+projectile_scene = SubResource("PackedScene_tuyoq")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=468840483]
+transform = Transform3D(0.9975641, -0.06975647, 0, 0.06975647, 0.9975641, 0, 0, 0, 1, 0, 2.0864656, 0)
+current = true
+
+[node name="node" type="Node3D" parent="Camera3D" unique_id=1864938072]
+transform = Transform3D(0.25000006, 0.06698733, -0.96592593, -0.25881904, 0.9659259, -7.450581e-09, 0.9330127, 0.25000003, 0.2588191, -0.14554445, -2.081383, 0)
+
+[node name="parry_arm" parent="Camera3D/node" unique_id=676794070 instance=ExtResource("1_3vyb7")]
+transform = Transform3D(-0.96836287, -0.24939609, 0.008637458, -0.24938597, 0.9659249, -0.069238156, 0.00892444, -0.06920175, -0.99756247, -3.8331783, -0.31765366, -2.345292)
+
+[node name="Area3D" type="Area3D" parent="Camera3D/node" unique_id=1932822663]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/node/Area3D" unique_id=1469616242]
+transform = Transform3D(0.96982884, -0.24368393, -0.008236259, 0.24367882, 0.9674986, 0.067651615, -0.008514762, -0.06761709, 0.997675, -4.148788, 2.5136662, -1.8290113)
+shape = SubResource("CapsuleShape3D_0wfyh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=204852305]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
 shape = SubResource("CapsuleShape3D_qvlg1")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=468840483]
-transform = Transform3D(0.25000003, -0.25881904, 0.93301266, 0.066987306, 0.9659258, 0.25, -0.9659258, 0, 0.25881907, 4, 4, 0)
-
-[node name="node" type="Node3D" parent="Camera3D" unique_id=1864938072]
-transform = Transform3D(0.25000006, 0.06698732, -0.96592593, -0.25881907, 0.9659259, -7.450581e-09, 0.9330127, 0.25000003, 0.2588191, -1.2679496, -2.8284273, -4.732051)
-
-[node name="parry_arm" parent="Camera3D/node" unique_id=676794070 instance=ExtResource("1_3vyb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-
-[node name="Area3D" type="Area3D" parent="Camera3D/node" unique_id=1932822663]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/node/Area3D" unique_id=1469616242]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4788818, -1.3343303)
-shape = SubResource("SphereShape3D_q0jkj")
 
 [connection signal="area_entered" from="Camera3D/node/Area3D" to="." method="_on_area_3d_area_entered"]

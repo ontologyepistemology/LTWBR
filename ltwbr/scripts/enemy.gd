@@ -15,23 +15,25 @@ func fire_loop() -> void:
 		spawn_projectile()
 		
 func spawn_projectile() -> void:
-	print("projectile scene value: ", projectile_scene)
-	print("is null: ", projectile_scene == null)
+	# print("projectile scene value: ", projectile_scene)
+	# print("is null: ", projectile_scene == null)
 	
 	if projectile_scene == null:
-		print("error")
+	#	print("error")
 		return 
 		
-		print("checkpoint: inst")
-		var projectile = projectile_scene.instantiate()
-		print("test: ", projectile)
-		get_tree().current_scene.add_child(projectile)
+#	print("checkpoint: inst")
+	var projectile = projectile_scene.instantiate()
+#	print("test: ", projectile)
+	get_tree().current_scene.add_child(projectile)
 	
 		
-		var forward: Vector3 = -projectile_spawn.global.basis.z
-		projectile.global_position = projectile_spawn.global_position
-		print("Skull spawned at: ", projectile.global_position)
-		print("Firing direction: ", forward)
-		projectile.direction = forward
-		projectile.speed = projectile_speed
+	var forward: Vector3 = -projectile_spawn.global_basis.z
+	
+	projectile.global_position = projectile_spawn.global_position
+	# print("Skull spawned at: ", projectile.global_position)
+	# print("Firing direction: ", forward)
+	
+	projectile.direction = forward
+	projectile.speed = projectile_speed
 		
