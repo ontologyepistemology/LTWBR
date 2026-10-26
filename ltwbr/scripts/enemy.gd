@@ -31,9 +31,8 @@ func spawn_projectile() -> void:
 	var forward: Vector3 = -projectile_spawn.global_basis.z
 	
 	projectile.global_position = projectile_spawn.global_position
-	# print("Skull spawned at: ", projectile.global_position)
-	# print("Firing direction: ", forward)
-	
 	projectile.direction = forward
 	projectile.speed = projectile_speed
+	projectile.target = get_tree().current_scene.get_node("player")
+	projectile.source_enemy = self
 		

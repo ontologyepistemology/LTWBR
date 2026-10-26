@@ -7,9 +7,10 @@
 [node name="main" type="Node3D" unique_id=2122738950]
 
 [node name="burning_wanderer" parent="." unique_id=1803686469 instance=ExtResource("1_o5qli")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.5, -1.1956697, -8)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.5, 0.80433035, -8)
 
 [node name="player" parent="." unique_id=1110071146 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 mouse_sensitivity = 0.02
 
 [node name="floor" parent="." unique_id=1988829476 instance=ExtResource("3_sugp2")]
