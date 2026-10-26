@@ -21,22 +21,6 @@ func _input(event: InputEvent) -> void:
 			animation_player.play("ulnaAction")
 			await get_tree().create_timer(0.5).timeout
 			is_parrying = false
-	if event.is_action_pressed("fire_projectile") and not event.is_echo():
-		fire_projectile()
-			
-func fire_projectile() -> void:
-	if projectile_scene == null:
-		return
-	var projectile = projectile_scene.instantiate() 
-	get_tree().current_scene.add_child(projectile)
-	
-	var spawn_position = $Camera3D.global_position \
-		+ (-$Camera3D.global_transform.basis.z * projectile_spawn_distance)
-		
-	projectile.global_position = spawn_position
-	projectile.init(
-		spawn_position + (-$Camera3D.global_transform.basis.z * 20.0) # magic number hell
-	)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	# print("Parry area detected: ", area.name)
