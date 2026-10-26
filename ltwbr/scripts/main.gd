@@ -1,5 +1,5 @@
 extends Node3D
-
+@onready var triumph_screen: CanvasLayer = $triumph_screen
 @onready var death_screen: CanvasLayer = $death_screen
 @onready var health_bar: ProgressBar = $HUD_temp/HealthBar
 @onready var player = $player
@@ -17,7 +17,6 @@ func show_death_screen() -> void:
 	tween.tween_property($death_screen/death_text, "modulate:a", 1.0, 1.5)
 
 func _on_restart_button_pressed() -> void:
-	print("Button pressed")
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().reload_current_scene()
@@ -43,3 +42,13 @@ func update_health_bar(current_health: int, max_health: int) -> void:
 			current_health,
 			0.25
 			)
+
+func show_triumph_screen() -> void:
+	triumph_screen.visible = true
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE 
+
+func _on_triumph_button_pressed() -> void: 
+	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	get_tree().reload_current_scene()

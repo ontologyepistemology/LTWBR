@@ -83,4 +83,36 @@ offset_right = 99.0
 offset_bottom = 31.0
 text = "100/100"
 
+[node name="triumph_screen" type="CanvasLayer" parent="." unique_id=993101782]
+process_mode = 3
+visible = false
+
+[node name="dark_overlay" type="ColorRect" parent="triumph_screen" unique_id=1435214058]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="triumph_text" type="Label" parent="triumph_screen" unique_id=1633701602]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_colors/font_color = Color(0.7582776, 0.5343727, 1.92523e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "FOE VANQUISHED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="triumph_button" type="Button" parent="triumph_screen" unique_id=1273028221]
+offset_left = 480.0
+offset_top = 384.0
+offset_right = 669.9355
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 32
+text = "TRY AGAIN"
+icon_alignment = 1
+
 [connection signal="pressed" from="death_screen/restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="triumph_screen/triumph_button" to="." method="_on_restart_button_pressed"]

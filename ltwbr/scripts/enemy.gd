@@ -1,9 +1,11 @@
 extends Node3D
 
-
+@export var max_health: int = 100
+var health: int = 100
 @export var projectile_scene: PackedScene
 @export var fire_interval: float = 2.0
-@export var projectile_speed: float = 8.0
+@export var min_projectile_speed: float = 6.0
+@export var max_projectile_speed: float = 12.0
 
 @onready var projectile_spawn: Marker3D = $projectileSpawn
 
@@ -35,7 +37,21 @@ func spawn_projectile() -> void:
 	
 	projectile.global_position = projectile_spawn.global_position
 	projectile.direction = forward
-	projectile.speed = projectile_speed
+	projectile.speed = randf_range(min_projectile_speed, max_projectile_speed)
 	projectile.target = get_tree().current_scene.get_node("player")
+	print("Rspeed: ", projectile.speed)
 	projectile.source_enemy = self
 		
+		
+func take_damage(amount: int) -> void:
+	print("Damage received: ", amount)
+	print("Health before hit: ", health)
+	
+	health = max(health - amount, 0)
+	
+	print("Enemy Health: ", health, "/", max_health)
+	
+	if health <= 0:
+		print("Foe Vanquished!")
+		get_tree().current_scene.show_triumph_screen()
+		queue_free()

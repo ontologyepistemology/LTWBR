@@ -3,9 +3,24 @@
 [ext_resource type="Script" uid="uid://1l4alr6y68lk" path="res://scripts/enemy.gd" id="1_okqcu"]
 [ext_resource type="PackedScene" uid="uid://bnpt2xga0ximj" path="res://scenes/skull_projectile.tscn" id="2_0t8ox"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0t8ox"]
+size = Vector3(1.1, 1.1, 1.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qkou8"]
+
 [node name="burning_wanderer" type="Node3D" unique_id=1803686469]
 script = ExtResource("1_okqcu")
 projectile_scene = ExtResource("2_0t8ox")
 
 [node name="projectileSpawn" type="Marker3D" parent="." unique_id=585332195]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=833084725]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=826263647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29002643, 3.14574, 0.7986345)
+shape = SubResource("BoxShape3D_0t8ox")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1506741939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 3.146, 0.799)
+mesh = SubResource("BoxMesh_qkou8")
