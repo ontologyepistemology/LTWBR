@@ -71,4 +71,4 @@ func take_damage(amount: int) -> void:
 		print("Health ", health, "/", max_health)
 		
 		if health <= 0:
-			print("GAME OVER")
+			get_tree().current_scene.show_death_screen()

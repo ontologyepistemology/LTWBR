@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://cuy3vpwhg5ds4"]
 
+[ext_resource type="Script" uid="uid://cfkgulu0n6otm" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://d2d5d35epo8t4" path="res://scenes/burning_wanderer.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://cwcaqlo70nwbk" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cd74jxhcm02qn" path="res://scenes/floor.tscn" id="3_sugp2"]
 
 [node name="main" type="Node3D" unique_id=2122738950]
+script = ExtResource("1_jyhfs")
 
 [node name="burning_wanderer" parent="." unique_id=1803686469 instance=ExtResource("1_o5qli")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.5, 0.80433035, -8)
@@ -15,3 +17,25 @@ mouse_sensitivity = 0.02
 
 [node name="floor" parent="." unique_id=1988829476 instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="death_screen" type="CanvasLayer" parent="." unique_id=1016607322]
+visible = false
+
+[node name="dark_overlay" type="ColorRect" parent="death_screen" unique_id=1463801922]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="death_text" type="Label" parent="death_screen" unique_id=1653730897]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_colors/font_color = Color(0.798921, 0.15170373, 0.15170373, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "FRAGMENT SHATTERED"
+horizontal_alignment = 1
+vertical_alignment = 1
