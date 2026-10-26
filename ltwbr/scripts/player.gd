@@ -2,11 +2,13 @@ extends CharacterBody3D
 
 @onready var animation_player: AnimationPlayer = $Camera3D/node/parry_arm/AnimationPlayer
 @onready var camera: Camera3D = $Camera3D
+
+@export var max_health: int = 100
 @export var projectile_scene: PackedScene
 @export var projectile_spawn_distance: float = 1.5
 @export var mouse_sensitivity: float = 0.002
 
-
+var health: int = 100
 var is_parrying: bool = false
 var camera_pitch: float = 0.0 # What's the difference between pitch and yaw again?
 
@@ -63,3 +65,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func take_damage(amount: int) -> void:
+		health = max(health - amount, 0)
+		print("Health ", health, "/", max_health)
+		
+		if health <= 0:
+			print("GAME OVER")

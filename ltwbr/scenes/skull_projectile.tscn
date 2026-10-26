@@ -15,3 +15,5 @@ shape = SubResource("SphereShape3D_oqx4g")
 
 [node name="skull_projectile" parent="." unique_id=2075960481 instance=ExtResource("2_n1dwg")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

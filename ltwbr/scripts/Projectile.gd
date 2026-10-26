@@ -26,3 +26,11 @@ func deflect() -> void:
 	speed *= 1.5
 	print("Parried!")
 	# print("Direction after: ", direction)
+	
+# Damage function
+
+func _on_body_entered(body: Node3D) -> void:
+	print("Hit!")
+	if body.has_method("take_damage"):
+		body.take_damage(25)
+	queue_free()

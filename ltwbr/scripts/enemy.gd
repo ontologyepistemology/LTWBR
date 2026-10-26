@@ -1,10 +1,13 @@
 extends Node3D
 
+
 @export var projectile_scene: PackedScene
 @export var fire_interval: float = 2.0
 @export var projectile_speed: float = 8.0
 
 @onready var projectile_spawn: Marker3D = $projectileSpawn
+
+
 
 func _ready() -> void:
 	fire_loop()

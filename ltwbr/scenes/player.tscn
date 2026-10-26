@@ -27,7 +27,11 @@ _bundled = {
 radius = 0.35
 height = 3.3
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qvlg1"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dqkch"]
+size = Vector3(2, 3, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q0jkj"]
+size = Vector3(2, 3, 1)
 
 [node name="player" type="CharacterBody3D" unique_id=1110071146]
 script = ExtResource("1_g2els")
@@ -58,8 +62,11 @@ transform = Transform3D(0.99999666, -0.0025552474, 0.0003363788, 0.0015689433, 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=204852305]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
-shape = SubResource("CapsuleShape3D_qvlg1")
+shape = SubResource("BoxShape3D_dqkch")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=69140882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_q0jkj")
 
 [connection signal="area_entered" from="Camera3D/node/parry_arm/ulna/Area3D" to="." method="_on_area_3d_area_entered"]
 
