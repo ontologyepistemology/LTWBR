@@ -52,6 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func take_damage(amount: int) -> void:
 		health = max(health - amount, 0)
+		get_tree().current_scene.update_health_bar(health, max_health)
 		print("Health ", health, "/", max_health)
 		
 		if health <= 0:

@@ -1,6 +1,8 @@
 extends Node3D
 
 @onready var death_screen: CanvasLayer = $death_screen
+@onready var health_bar: ProgressBar = $HUD_temp/HealthBar
+@onready var player = $player
 
 func show_death_screen() -> void:
 	death_screen.visible = true
@@ -16,3 +18,14 @@ func _on_restart_button_pressed() -> void:
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().reload_current_scene()
+
+# HealthBar
+
+func _ready() -> void:
+	health_bar.max_value = player.max_health
+	health_bar.value = player.health
+	
+
+func update_health_bar(current_health: int, max_health: int) -> void:
+		health_bar.max_value = max_health
+		health_bar.value = current_health
