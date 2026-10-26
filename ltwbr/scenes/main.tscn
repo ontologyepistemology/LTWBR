@@ -5,6 +5,22 @@
 [ext_resource type="PackedScene" uid="uid://cwcaqlo70nwbk" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cd74jxhcm02qn" path="res://scenes/floor.tscn" id="3_sugp2"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyhfs"]
+bg_color = Color(0.10368345, 0.036760543, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.54901963, 0.44313726, 0.24313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbgi4"]
+bg_color = Color(0.44026604, 0.028703075, 0.028587067, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.54901963, 0.44313726, 0.24313726, 1)
+
 [node name="main" type="Node3D" unique_id=2122738950]
 script = ExtResource("1_jyhfs")
 
@@ -52,10 +68,19 @@ icon_alignment = 1
 [node name="HUD_temp" type="CanvasLayer" parent="." unique_id=1236884344]
 
 [node name="HealthBar" type="ProgressBar" parent="HUD_temp" unique_id=277066218]
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 280.0
-offset_bottom = 57.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 282.0
+offset_bottom = 55.0
+theme_override_styles/background = SubResource("StyleBoxFlat_jyhfs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tbgi4")
 value = 100.0
+
+[node name="VITALITY" type="Label" parent="HUD_temp" unique_id=1679721051]
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 99.0
+offset_bottom = 31.0
+text = "100/100"
 
 [connection signal="pressed" from="death_screen/restart_button" to="." method="_on_restart_button_pressed"]

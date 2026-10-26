@@ -3,6 +3,9 @@ extends Node3D
 @onready var death_screen: CanvasLayer = $death_screen
 @onready var health_bar: ProgressBar = $HUD_temp/HealthBar
 @onready var player = $player
+@onready var health_label: Label = $HUD_temp/VITALITY
+
+var health_tween: Tween
 
 func show_death_screen() -> void:
 	death_screen.visible = true
@@ -28,4 +31,15 @@ func _ready() -> void:
 
 func update_health_bar(current_health: int, max_health: int) -> void:
 		health_bar.max_value = max_health
-		health_bar.value = current_health
+		health_label.text = str(current_health) + "/" + str(max_health) # I <3 concatenation SM. 
+		
+		if health_tween and health_tween.is_running():
+			health_tween.kill()
+		
+		health_tween = create_tween()
+		health_tween.tween_property(
+			health_bar,
+			"value",
+			current_health,
+			0.25
+			)
